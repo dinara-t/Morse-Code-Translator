@@ -1,0 +1,172 @@
+@use "variables" as *;
+
+.panel {
+  background: $color-panel-bg;
+  border-radius: 0.9rem;
+  padding: 1rem 1.1rem 1.1rem;
+  border: 1px solid $color-panel-border;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+.panel-input::before {
+  background: linear-gradient(
+    135deg,
+    rgba($color-accent-blue, 0.25),
+    transparent
+  );
+}
+
+.panel-output::before {
+  background: linear-gradient(
+    135deg,
+    rgba($color-accent-green, 0.25),
+    transparent
+  );
+}
+
+textarea {
+  width: 100%;
+  min-height: 160px;
+  resize: vertical;
+  background: $color-muted;
+  border-radius: 0.75rem;
+  border: 1px solid $color-panel-border;
+  padding: 0.8rem 0.9rem;
+  color: $color-text;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease,
+    background 0.15s ease;
+}
+
+textarea::placeholder {
+  color: $color-muted-strong;
+}
+
+textarea:focus {
+  border-color: $color-accent-focus;
+  box-shadow: 0 0 0 1px rgba($color-accent-focus, 0.4);
+  background: rgba($color-accent-blue, 0.12);
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.4rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+}
+
+#swap-btn {
+  background: transparent;
+  color: $color-text;
+  border-radius: 999px;
+  border: 1px solid rgba($color-panel-border, 0.6);
+}
+
+#swap-btn:hover {
+  background: rgba($color-accent-focus, 0.15);
+}
+
+#translate-btn {
+  background: linear-gradient(135deg, $color-accent-blue, $color-accent-green);
+  color: $color-text;
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.35);
+}
+
+button {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-radius: $radius-pill;
+  padding: 0.7rem 1.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  transition: transform 0.1s ease, box-shadow 0.15s ease, background 0.15s ease,
+    color 0.15s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#translate-btn {
+  background: linear-gradient(135deg, $color-accent-blue, $color-accent-green);
+  color: $color-text;
+  box-shadow: $shadow-accent;
+}
+
+#translate-btn:hover {
+  box-shadow: $shadow-accent-hover;
+}
+
+#translate-btn:active {
+  box-shadow: $shadow-accent-active;
+}
+
+#swap-btn {
+  background: $color-accent-green;
+  color: $color-text;
+  border: 1px solid $color-panel-border;
+}
+
+#swap-btn:hover {
+  background: $color-accent-focus;
+}
+
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.85rem;
+  color: $color-muted-strong;
+}
+
+#mode-label {
+  padding: 0.25rem 0.75rem;
+  border-radius: $radius-pill;
+  color: $color-text;
+  background: $color-panel-border;
+  border: 1px solid $color-panel-border;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (min-width: 768px) {
+  .controls {
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+  }
+
+  button {
+    width: 100%;
+  }
+}

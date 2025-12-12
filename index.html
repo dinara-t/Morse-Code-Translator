@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Morse Code Translator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Jersey+20&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./src/styles/main.css" />
+    <script type="module" src="./src/js/main.js" defer></script>
+  </head>
+  <body>
+    <div class="app">
+      <header class="app-header">
+        <h1>Morse Code Translator</h1>
+        <p>
+          Type English or Morse. The translator will auto-detect and convert.
+        </p>
+      </header>
+
+      <main class="translator-card">
+        <div class="panel panel-input">
+          <label for="input-text">Input</label>
+          <textarea
+            id="input-text"
+            placeholder="Type English text or Morse code (e.g. ... --- ... / ... --- ...)"
+          ></textarea>
+          <div class="status-row">
+            <span id="mode-label">Waiting for input…</span>
+          </div>
+        </div>
+
+        <div class="controls">
+          <button id="swap-btn" type="button">Swap ↕</button>
+          <button id="translate-btn" type="button">Translate</button>
+        </div>
+
+        <div class="panel panel-output">
+          <label for="output-text">Output</label>
+          <textarea
+            id="output-text"
+            readonly
+            placeholder="Translation will appear here"
+          ></textarea>
+        </div>
+      </main>
+
+      <footer class="app-footer">
+        <span
+          >Use one space between Morse letters and “ / ” to separate words</span
+        >
+      </footer>
+    </div>
+  </body>
+</html>

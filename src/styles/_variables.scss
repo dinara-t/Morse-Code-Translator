@@ -1,0 +1,22 @@
+$font-stack: "Jersey 20", "Segoe UI", Roboto, system-ui, sans-serif;
+
+$color-bg-gradient: radial-gradient(circle at top, #c3ffd2, #00c07098);
+$color-text: #ffffff;
+$color-muted: rgba(72, 109, 156, 0.5);
+$color-muted-strong: #00ffc8;
+
+$color-panel-bg: rgba(116, 255, 255, 0.5);
+$color-panel-border: rgba(55, 65, 81, 0.3);
+
+$color-accent-blue: #0ea5e9;
+$color-accent-green: #31cfa8;
+$color-accent-focus: #38bdf8;
+
+$radius-lg: 1.5rem;
+$radius-md: 1rem;
+$radius-pill: 999px;
+
+$shadow-strong: 0 25px 40px rgba(0, 0, 0, 0.45);
+$shadow-accent: 0 12px 20px rgba(34, 197, 94, 0.32);
+$shadow-accent-hover: 0 16px 26px rgba(34, 197, 94, 0.4);
+$shadow-accent-active: 0 8px 16px rgba(34, 197, 94, 0.28);
