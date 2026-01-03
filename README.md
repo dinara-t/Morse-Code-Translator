@@ -25,3 +25,5 @@ Direct file: https://images.pexels.com/photos/33966530/pexels-photo-33966530.jpe
 
 English to Morse: uppercase, map characters, join letters with spaces, words with " / ".
 Morse to English: split by spaces or slashes, map codes, join letters and words.
+
+**Live Demo** https://dinara-t.github.io/Morse-Code-Translator/

@@ -5,6 +5,10 @@ function normalizeEnglish(str) {
   return str.trim().toUpperCase();
 }
 
+function getUntranslatableInfoMessage() {
+  return "? represents untranslatable characters";
+}
+
 function translateToMorse(englishStr) {
   const normalized = normalizeEnglish(englishStr);
   if (!normalized) return "";
@@ -24,6 +28,9 @@ function translateToEnglish(morseStr) {
   if (typeof morseStr !== "string") return "";
   const trimmed = morseStr.trim();
   if (!trimmed) return "";
+
+  if (/^[\/\s]+$/.test(trimmed)) return "?";
+
   const normalized = trimmed.replace(/\s{3,}/g, "   ");
   const wordTokens = normalized.split(/\s{3}|\/+/);
   const englishWords = wordTokens
@@ -48,4 +55,11 @@ function detectInputType(str) {
   return "english";
 }
 
-export { translateToMorse, translateToEnglish, detectInputType };
+export {
+  translateToMorse,
+  translateToEnglish,
+  detectInputType,
+  getUntranslatableInfoMessage,
+  EN_TO_MORSE,
+  MORSE_TO_EN,
+};

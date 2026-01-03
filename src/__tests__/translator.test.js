@@ -1,10 +1,10 @@
-const {
+import {
   translateToMorse,
   translateToEnglish,
   detectInputType,
   EN_TO_MORSE,
   MORSE_TO_EN,
-} = require("../js/translator.js");
+} from "../js/translator.js";
 
 describe("Morse translator core functions", () => {
   test("EN_TO_MORSE has SOS mapping", () => {
@@ -61,5 +61,17 @@ describe("Morse translator core functions", () => {
     expect(detectInputType("   ")).toBe("empty");
     expect(detectInputType(null)).toBe("empty");
     expect(detectInputType(undefined)).toBe("empty");
+  });
+
+  test("invalid morse-looking token becomes ?", () => {
+    expect(translateToEnglish("......--------------")).toBe("?");
+  });
+
+  test("mix of morse and English produces ? for the english token in morse mode", () => {
+    expect(translateToEnglish(".... E .-..")).toBe("H?L");
+  });
+
+  test("edge case //////// becomes ?", () => {
+    expect(translateToEnglish("////////")).toBe("?");
   });
 });

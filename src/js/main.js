@@ -2,6 +2,7 @@ import {
   translateToMorse,
   translateToEnglish,
   detectInputType,
+  getUntranslatableInfoMessage,
 } from "./translator.js";
 
 const inputEl = document.getElementById("input-text");
@@ -9,6 +10,7 @@ const outputEl = document.getElementById("output-text");
 const translateBtn = document.getElementById("translate-btn");
 const swapBtn = document.getElementById("swap-btn");
 const modeLabel = document.getElementById("mode-label");
+const infoEl = document.getElementById("untranslatable-info");
 
 function updateModeLabel() {
   const value = inputEl.value;
@@ -25,17 +27,28 @@ function updateModeLabel() {
 function runTranslation() {
   const value = inputEl.value;
   const type = detectInputType(value);
+  let result = "";
+
   if (type === "english") {
-    const result = translateToMorse(value);
+    result = translateToMorse(value);
     outputEl.value = result;
     modeLabel.textContent = "Translated English → Morse";
   } else if (type === "morse") {
-    const result = translateToEnglish(value);
+    result = translateToEnglish(value);
     outputEl.value = result;
     modeLabel.textContent = "Translated Morse → English";
   } else {
     outputEl.value = "";
     modeLabel.textContent = "Nothing to translate";
+  }
+
+  if (infoEl) {
+    if (result.includes("?")) {
+      infoEl.textContent = getUntranslatableInfoMessage();
+      infoEl.style.display = "block";
+    } else {
+      infoEl.style.display = "none";
+    }
   }
 }
 
